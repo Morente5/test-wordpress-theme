@@ -1,0 +1,24 @@
+#social-menu
+  flex-direction: row
+  a.nav-link
+    font-size: 0
+    margin: .5rem
+    padding: 0
+  span.fa
+    font-size: xx-large
+    color: $brand-info
+    opacity: .8
+    &:hover
+      opacity: 1
+      color: lighten($brand-info, 10%)
+
+.navbar-social
+  padding: 0
+  margin: 1rem
+  .social
+    align-self: center
+    padding: 0
+    +media-breakpoint-up(sm)
+      margin-left: 3rem
+  +media-breakpoint-up(sm)
+    margin: auto 0 auto auto

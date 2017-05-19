@@ -15,7 +15,7 @@ var browserSyncWatchFiles = [
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
-    proxy: "localhost/understrap/",
+    proxy: "yofisio/",
     notify: false
 };
 
@@ -49,7 +49,7 @@ function swallowError(self, error) {
 // gulp sass + cssnano + rename
 // Prepare the min.css for production (with 2 pipes to be sure that "child-theme.css" == "child-theme.min.css")
 gulp.task('scss-for-prod', function() {
-    var source =  gulp.src('./sass/*.scss')
+    var source = gulp.src(['./sass/*.scss', './sass/*.sass'])
         .pipe(plumber({ errorHandler: function (error) { swallowError(this, error); } }))
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sass());
@@ -74,7 +74,7 @@ gulp.task('scss-for-prod', function() {
 // gulp sourcemaps + sass + reload(browserSync)
 // Prepare the child-theme.css for the development environment
 gulp.task('scss-for-dev', function() {
-    gulp.src('./sass/*.scss')
+    gulp.src('./sass/*.scss', './sass/*.sass')
         .pipe(plumber({ errorHandler: function (error) { swallowError(this, error); } }))
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sass())
@@ -83,14 +83,14 @@ gulp.task('scss-for-dev', function() {
 });
 
 gulp.task('watch-scss', ['browser-sync'], function () {
-    gulp.watch('./sass/**/*.scss', ['scss-for-dev']);
+    gulp.watch(['./sass/**/*.scss', './sass/**/*.sass'], ['scss-for-dev']);
 });
 
 // Run:
 // gulp sass
 // Compiles SCSS files in CSS
 gulp.task('sass',['minify-css'], function () {
-    var stream = gulp.src('./sass/*.scss')
+    var stream = gulp.src(['./sass/*.scss', './sass/*.sass'])
         .pipe(plumber({ errorHandler: function (error) { swallowError(this, error); } }))
         .pipe(sass())
         .pipe(gulp.dest('./css'))
@@ -103,7 +103,7 @@ gulp.task('sass',['minify-css'], function () {
 // gulp watch
 // Starts watcher. Watcher runs gulp sass task on changes
 gulp.task('watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
+    gulp.watch(['./sass/**/*.scss', './sass/**/*.sass'], ['sass']);
     gulp.watch('./css/child-theme.css', ['minify-css']);
     gulp.watch([basePaths.dev + 'js/**/*.js','js/**/*.js','!js/child-theme.js','!js/child-theme.min.js'], ['scripts']);
 });
@@ -242,12 +242,12 @@ gulp.task('copy-assets', function() {
 // Copies the files to the /dist folder for distributon
 gulp.task('dist', ['clean-dist'], function() {
     gulp.src(['**/*','!bower_components','!bower_components/**','!node_modules','!node_modules/**','!src','!src/**','!dist','!dist/**','!sass','!sass/**','!readme.txt','!readme.md','!package.json','!gulpfile.js','!CHANGELOG.md','!.travis.yml','!jshintignore', '!codesniffer.ruleset.xml', '*'])
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('../yofisio/'))
 });
 
 // Deleting any file inside the /src folder
 gulp.task('clean-dist', function () {
-  return del(['dist/**/*',]);
+    return del(['../yofisio/**/*'], { force: true });
 });
 
 // Run
@@ -255,10 +255,10 @@ gulp.task('clean-dist', function () {
 // Copies the files to the /dist folder for distributon
 gulp.task('dist-product', ['clean-dist-product'], function() {
     gulp.src(['**/*','!bower_components','!bower_components/**','!node_modules','!node_modules/**','!dist','!dist/**', '*'])
-    .pipe(gulp.dest('dist-product/'))
+        .pipe(gulp.dest('../yofisio-product/'))
 });
 
 // Deleting any file inside the /src folder
 gulp.task('clean-dist-product', function () {
-  return del(['dist-product/**/*',]);
+    return del(['../yofisio-product/**/*'], { force: true });
 });

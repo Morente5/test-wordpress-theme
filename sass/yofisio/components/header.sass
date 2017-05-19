@@ -1,0 +1,65 @@
+.header-main
+  .container
+    +media-breakpoint-up(sm)
+      display: flex
+
+.wrapper-navbar
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+
+// Menu Icon
+.navbar-toggler
+  padding: .25rem
+  border: none
+  i.fa
+    color: $brand-primary
+    font-size: xx-large
+
+// LOGO
+.navbar-brand
+  margin: 2rem auto!important
+  +media-breakpoint-up(md)
+    max-width: 400px
+    max-height: 200px
+
+// Navigation bar
+#navigation-nav
+  .navbar-nav.navbar-top
+    display: inherit
+    .nav-link
+      padding-right: .5rem
+      padding-left: .5rem
+
+
+// Category nav
+#category-nav
+  .container
+    margin: 0!important
+    +media-breakpoint-up(sm)
+      margin: auto!important
+  +media-breakpoint-up(xs)
+    text-align: inherit
+  .menu-item
+    position: relative
+    .nav-link
+      display: inline-block
+      padding-right: 25px
+    .dropdown-toggle
+      position: absolute
+      padding-right: 8px
+      right: 0
+      padding-left: 8px!important
+      &::after
+        //margin-left: -3px!important
+        +media-breakpoint-up(lg)
+          margin-left: auto!important
+  .dropdown-menu
+    background: $brand-info
+    a.nav-link
+        width: 100%!important
+    +media-breakpoint-down(xs)
+        margin-top: -10px
+        border: none
+        background: none
+

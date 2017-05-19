@@ -1,0 +1,21 @@
+section.member
+  img
+    padding-bottom: 1rem
+  +media-breakpoint-up(sm)
+    [class^="float-"]
+      max-width: 40%
+      +media-breakpoint-up(md)
+        max-width: 33%
+    .float
+      &-left
+        img
+          padding-right: 1rem
+      &-right
+        img
+          padding-left: 1rem
+  
+
+figure
+  img
+    padding-top: 1rem
+    padding-bottom: 1rem

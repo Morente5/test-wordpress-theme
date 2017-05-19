@@ -1,0 +1,100 @@
+@import 'mixins/fonts'
++fontFace('AvenirNextLTPro-Regular','../fonts/AvenirNextLTPro-Regular')
++fontFace('AvenirNextLTPro-Cn','../fonts/AvenirNextLTPro-Cn')
++fontFace('AvenirNextLTPro-Bold','../fonts/AvenirNextLTPro-Bold')
+
+*
+    font-family: 'AvenirNextLTPro-Regular'
+h1, h2, h3, h4, h5, h6
+    color: $inverted
+    font-family: 'AvenirNextLTPro-Bold'
+h1, h2
+    font-variant: small-caps
+p
+    +media-breakpoint-up(md)
+        text-align: justify
+
+@import "components/social-menu"
+@import "components/header"
+@import "components/categories-menu"
+@import "components/breadcrumbs"
+@import "components/phone-cta"
+@import "components/content-header"
+@import "components/equipo"
+@import "components/contacto"
+@import "components/img-half"
+@import "components/testimonios"
+@import "components/footer"
+
+section
+    margin-bottom: 2rem
+    margin-top: 2rem
+    h2
+        margin-bottom: 1.5rem
+        padding: .5rem
+        background-color: rgba($brand-primary, 0.85)!important
+
+.bg-white
+    background-color: #fff
+.bg-inverted
+    background-color: $inverted
+
+.pos-r
+    position: relative
+
+.overlay
+    position: absolute!important
+    top: 0!important
+    bottom: 0!important
+    left: 0!important
+    right: 0!important
+
+@for $i from 1 through 10
+    .overlay-#{$i}
+        opacity: .1 * $i
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+
+.mini-section
+    &:not(:last-child)
+        margin-bottom: 2rem
+    &:first-child
+        margin-top: 2rem
+
+.card-deck
+    margin-bottom: 1rem
+
+.blockquote
+    border-left: .25rem solid rgba($brand-warning, .85)
+    font-family: AvenirNextLTPro-Cn
+    strong
+        font-family: AvenirNextLTPro-Cn
+
+.highlight
+    font-weight: 700
+    padding: .5rem 1rem
+    margin-bottom: 1rem
+    font-variant: small-caps
+    background-color: rgba($brand-info, 0.65)!important
+
+
++media-breakpoint-down(md) 
+    .card-deck
+        display: block
+        width: 100%
+        margin-bottom: .75rem
+        table-layout: fixed
+        border-spacing: 1.25rem 0
+        .card 
+            display: block
+            margin-bottom: .75rem
+            vertical-align: top
+            &:not(:first-child) 
+                margin-left: 0px
+            &:not(:last-child) 
+                margin-right: 0px
+
+
