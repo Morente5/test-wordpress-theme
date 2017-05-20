@@ -52,7 +52,7 @@ $the_theme = wp_get_theme();
 							<ul class="list-unstyled">
 							<?php
 								foreach (get_field('telefonos', $contactoID) as $tel) {
-									echo '<li><a data-rel="external" href="tel:'.$tel['telefono'].'"><i class="fa fa-phone-square" aria-hidden="true"></i> '.$tel['telefono'].'</li>';
+									echo '<li><a data-rel="external" href="tel:'.$tel['telefono'].'"><i class="fa fa-phone-square" aria-hidden="true"></i> '.$tel['telefono'].'</a></li>';
 								}
 							?>
 							</ul>
