@@ -17,7 +17,7 @@ $the_theme = wp_get_theme();
 	<div class="container">
 
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-lg-3">
 				<h4>Categorías</h4>
 				<?php wp_nav_menu(
 				array(
@@ -49,23 +49,23 @@ $the_theme = wp_get_theme();
 					<div class="col-lg-4">
 						<?php if (get_field('telefonos', $contactoID)) { ?>
 							<h6>Teléfono<?php echo count(get_field('telefonos', $contactoID)) != 1 ? 's' : ''; ?></h6>
-							<ul>
+							<ul class="list-unstyled">
 							<?php
 								foreach (get_field('telefonos', $contactoID) as $tel) {
-									echo '<li>'.$tel['telefono'].'</li>';
+									echo '<li><a data-rel="external" href="tel:'.$tel['telefono'].'"><i class="fa fa-phone-square" aria-hidden="true"></i> '.$tel['telefono'].'</li>';
 								}
 							?>
 							</ul>
 						<?php } ?>
 						<?php if (get_field('email', $contactoID)) { ?>
 							<h6>Email</h6>
-							<?php the_field('email', $contactoID) ?>
+							<p><a data-rel="external" href="mailto:<?php the_field('email', $contactoID) ?>"><i class="fa fa-envelope-square" aria-hidden="true"></i> <?php the_field('email', $contactoID) ?></a></p>
 						<?php } ?>
 					</div>
 					<div class="col-lg-4">
 						<?php if (get_field('horario', $contactoID)) { ?>
 							<h6>Horario</h6>
-							<?php the_field('horario', $contactoID) ?>
+							<p><?php the_field('horario', $contactoID) ?></p>
 						<?php } ?>
 					</div>
 				</div>
@@ -74,7 +74,7 @@ $the_theme = wp_get_theme();
 
 		<div class="row">
 			<div class="col">
-				©2017 by <a href="https://braunmarketingandconsulting.es">Braun Marketing & Consulting</a>
+				<p>©2017 by <a href="https://braunmarketingandconsulting.es">Braun Marketing & Consulting</a></p>
 			</div>
 		</div>
 
