@@ -1,76 +1,49 @@
 
-.testimonial
+.testimonio
   margin-bottom: 1rem
+  &-section
+    &:after
+      top: 100%
+      left: 50px
+      border: solid transparent
+      content: " "
+      position: absolute
+      border-width: 15px
+      margin-left: -15px
 
-.testimonial-section
-  background-color: $brand-info
-  &:after
-    top: 100%
-    left: 50px
-    border: solid transparent
-    content: " "
-    position: absolute
-    border-top-color: #fff
-    border-width: 15px
-    margin-left: -15px
+  &-desc
+    margin-top: 20px
+    text-align: left
+    padding-left: 15px
+    img
+      border: 1px solid #f5f5f5
+      border-radius: 150px
+      height: 70px
+      padding: 3px
+      width: 70px
+      display: inline-block
+      vertical-align: top
 
-.testimonial-section
-  width: 100%
-  height: auto
-  padding: 15px
-  -webkit-border-radius: 5px
-  -moz-border-radius: 5px
-  border-radius: 5px
-  position: relative
-  border: 1px solid #fff
-  &:after
-    top: 100%
-    left: 50px
-    border: solid transparent
-    content: " "
-    position: absolute
-    border-top-color: #fff
-    border-width: 15px
-    margin-left: -15px
-
-.testimonial-desc
-  margin-top: 20px
-  text-align: left
-  padding-left: 15px
-  img
-    border: 1px solid #f5f5f5
-    border-radius: 150px
-    height: 70px
-    padding: 3px
-    width: 70px
+  &-writer
     display: inline-block
     vertical-align: top
-
-.testimonial-writer
-  display: inline-block
-  vertical-align: top
-  padding-left: 10px
-
-.testimonial-writer-name
-  font-weight: bold
-
-.testimonial-writer-designation, .testimonial-writer-company
-  font-size: 85%
+    padding-left: 10px
+    &-name
+      font-weight: bold
+    &-designation, &-company
+      font-size: 85%
 
 /*---- Outlined Styles ----
 
-.testimonial
-  &.testimonial-info
-    .testimonial-section
-      color: #fff
-      background-color: $brand-info
-      border-color: #2e6da4
+.testimonio
+  &.testimonio-info
+    .testimonio-section
       &:after
         border-top-color: $brand-info
-    .testimonial-desc img
-      border-color: #2e6da4
+    .testimonio-desc img
+      border-color: $brand-info
       background-color: $brand-info
-    .testimonial-writer-name
+    .testimonio-writer-name
       color: $brand-info
 
 

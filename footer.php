@@ -15,7 +15,7 @@ $the_theme = wp_get_theme();
 	<?php $contactoID = get_page_by_title( 'contacto' )->ID; ?>
 	
 	<div class="container">
-	<section>
+
 		<div class="row">
 			<div class="col-sm-3">
 				<h4>Categorías</h4>
@@ -41,10 +41,9 @@ $the_theme = wp_get_theme();
 					); ?>
 			</div><!--col end -->
 			<div class="col-lg-9">
-				<h4>¿Buscas un buen Osteópata en Granada?</h4>
+				
 				<div class="row">
 					<div class="col-lg-4">
-						Mapa
 						<div class="map"></div>
 					</div>
 					<div class="col-lg-4">
@@ -69,15 +68,14 @@ $the_theme = wp_get_theme();
 							<?php the_field('horario', $contactoID) ?>
 						<?php } ?>
 					</div>
-
 				</div>
 			</div>
-
 		</div>
-		</section>
-		<div class="row">
-			<div class="col">©2017 by Braun Marketing & Consulting</div>
 
+		<div class="row">
+			<div class="col">
+				©2017 by <a href="https://braunmarketingandconsulting.es">Braun Marketing & Consulting</a>
+			</div>
 		</div>
 
 	</div><!-- container end -->

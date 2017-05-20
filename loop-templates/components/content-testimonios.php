@@ -17,16 +17,18 @@
 
       <?php foreach (get_field('testimonios') as $i => $testimonio) { ?>
         <div class="col-lg-6">
-          <div class="testimonial testimonial-info">
-            <div class="testimonial-section">
-              <?php echo $testimonio['testimonio']; ?>
+          <div class="testimonio testimonio-info">
+            <div class="card card-inverse card-info testimonio-section">
+              <div class="card-block">
+                <?php echo $testimonio['testimonio']; ?>
+              </div>
             </div>
-            <div class="testimonial-desc">
+            <div class="testimonio-desc">
                 <img src="<?php echo $testimonio['imagen']['url']; ?>" alt="<?php echo $testimonio['imagen']['alt']; ?>">
-                <div class="testimonial-writer">
-                  <div class="testimonial-writer-name"><?php echo $testimonio['nombre']; ?></div>
-                  <div class="testimonial-writer-designation"><?php echo $testimonio['profesion']; ?></div>
-                  <a href="#" class="testimonial-writer-company"><?php echo $testimonio['tratamiento']; ?></a>
+                <div class="testimonio-writer">
+                  <div class="testimonio-writer-name"><?php echo $testimonio['nombre']; ?></div>
+                  <div class="testimonio-writer-designation"><?php echo $testimonio['profesion']; ?></div>
+                  <a href="#" class="testimonio-writer-company"><?php echo $testimonio['tratamiento']; ?></a>
                 </div>
             </div>
           </div>

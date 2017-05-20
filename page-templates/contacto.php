@@ -19,9 +19,15 @@ while ( have_posts() ) : the_post();
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
+				<?php if (get_field('titulo_mapa')) { ?>
+					<h2><?php the_field('titulo_mapa') ?></h2>
+				<?php } ?>
 				<div class="map"></div>
 			</div>
 			<div class="col-md-6">
+				<?php if (get_field('titulo_formulario')) { ?>
+					<h2><?php the_field('titulo_formulario') ?></h2>
+				<?php } ?>
 				<?php echo do_shortcode( '[contact-form-7 id="268" title="Contacto"]' ); ?>
 			</div>
 		</div>
