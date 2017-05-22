@@ -102,7 +102,7 @@ function initMap() {
 			map: map
 		});
 		var infowindow = new google.maps.InfoWindow({
-			content: '<?php echo get_field('direccion', $contactoID)['address']; ?>'
+			content: '<?php echo get_field('direccion', $contactoID)['address']; ?><br><a rel="nofollow" href="https://www.google.com/maps/place/Clinica+de+FISIOTERAPIA+Y+OSTEOPATIA+PTERION/@37.1549751,-3.5970512,19z/data=!3m1!4b1!4m5!3m4!1s0xd71fb5f2cc51789:0x8b84ae1ae66acbf2!8m2!3d37.154974!4d-3.596504?hl=es">Abrir en Google Maps</a>'
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {

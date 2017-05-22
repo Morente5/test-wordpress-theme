@@ -12,9 +12,10 @@ h1, h2, h3, h4, h5, h6
     font-family: 'AvenirNextLTPro-Bold'
 h1, h2
     font-variant: small-caps
-p
-    +media-breakpoint-up(md)
-        text-align: justify
+section
+    p
+        +media-breakpoint-up(md)
+            text-align: justify
 
 @import "components/social-menu"
 @import "components/header"
@@ -107,3 +108,6 @@ section
 
 .elementor-widget-text-editor
     color: inherit!important
+
+.gm-style-iw *
+    color: #000
