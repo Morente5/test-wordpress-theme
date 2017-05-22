@@ -102,7 +102,7 @@ function initMap() {
 			map: map
 		});
 		var infowindow = new google.maps.InfoWindow({
-			content: 'Estamos aquí'
+			content: '<?php echo get_field('direccion', $contactoID)['address']; ?>'
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
