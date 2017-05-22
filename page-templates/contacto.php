@@ -15,6 +15,8 @@ while ( have_posts() ) : the_post();
 	get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 	//get_template_part( 'loop-templates/components/content', 'subtitle' );
 ?>
+<div class="wrapper" id="content-wrapper">
+	
 <section id="contacto">
 	<div class="container">
 		<div class="row">
@@ -33,7 +35,8 @@ while ( have_posts() ) : the_post();
 		</div>
 	</div>
 </section>
-<?php
-endwhile;
+
+</div>
+<?php endwhile;
 
 get_footer();

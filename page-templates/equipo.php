@@ -15,28 +15,29 @@ while ( have_posts() ) : the_post();
 	get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 	//get_template_part( 'loop-templates/components/content', 'subtitle' );
 ?>
-
-<div class="container">
-	<div class="content">
-		<?php foreach (get_field('equipo') as $index => $member) { ?>
-			<section class="member" id="<?php echo urlencode($member['nombre']); ?>">
-				<div>
-					<div>
-						<h2 class="text-center"><?php echo $member['nombre']; ?></h2>
-					</div>
-					<div class="<?php echo $index % 2 ? 'float-right' : 'float-left'; ?>">
-						<img
-							src="<?php echo $member['imagen']['url']; ?>"
-							alt="<?php echo $member['imagen']['alt']; ?>"
-						>
-					</div>
-					<?php echo $member['texto'] ?>
-				</div>
-				<div class="clearfix"></div>
-			</section>
-		<?php } ?>
+	<div class="wrapper" id="content-wrapper">
+		<div class="container">
+			<div class="content">
+				<?php foreach (get_field('equipo') as $index => $member) { ?>
+					<section class="member" id="<?php echo urlencode($member['nombre']); ?>">
+						<div>
+							<div>
+								<h2 class="text-center"><?php echo $member['nombre']; ?></h2>
+							</div>
+							<div class="<?php echo $index % 2 ? 'float-right' : 'float-left'; ?>">
+								<img
+									src="<?php echo $member['imagen']['url']; ?>"
+									alt="<?php echo $member['imagen']['alt']; ?>"
+								>
+							</div>
+							<?php echo $member['texto'] ?>
+						</div>
+						<div class="clearfix"></div>
+					</section>
+				<?php } ?>
+			</div>
+		</div>
 	</div>
-</div>
 <?php
 
 endwhile;

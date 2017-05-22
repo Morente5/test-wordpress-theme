@@ -14,8 +14,11 @@ while ( have_posts() ) : the_post();
 	get_template_part( 'loop-templates/components/content', 'header' );
 	get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 	get_template_part( 'loop-templates/components/content', 'subtitle' );
-	get_template_part( 'loop-templates/components/content', 'categorias' );
-endwhile;
+	?>
+	<div class="wrapper" id="content-wrapper">
+		<?php get_template_part( 'loop-templates/components/content', 'categorias' ); ?>
+	</div>
+<?php endwhile;
 
 get_footer();
 

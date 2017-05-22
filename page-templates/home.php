@@ -12,10 +12,17 @@ get_header();
 
 while ( have_posts() ) : the_post();
 	get_template_part( 'loop-templates/components/content', 'header' );
-	get_template_part( 'loop-templates/components/content', 'subtitle' );
-	get_template_part( 'loop-templates/components/content', 'equipo' );
-	get_template_part( 'loop-templates/components/content', 'categorias' );
-	get_template_part( 'loop-templates/components/content', 'testimonios' );
+	?>
+	<div class="wrapper" id="content-wrapper">
+	<?php
+		get_template_part( 'loop-templates/components/content', 'subtitle' );
+		get_template_part( 'loop-templates/components/content', 'equipo' );
+		get_template_part( 'loop-templates/components/content', 'categorias' );
+		get_template_part( 'loop-templates/components/content', 'testimonios' );
+	?>
+	</div>
+<?php
+	
 endwhile;
 
 get_footer();
