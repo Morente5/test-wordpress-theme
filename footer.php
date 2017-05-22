@@ -45,6 +45,7 @@ $the_theme = wp_get_theme();
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="map"></div>
+						<p><?php echo get_field('direccion', $contactoID)['address']; ?></p>
 					</div>
 					<div class="col-lg-4">
 						<?php if (get_field('telefonos', $contactoID)) { ?>
