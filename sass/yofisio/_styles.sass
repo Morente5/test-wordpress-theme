@@ -113,5 +113,21 @@ section
     *
         color: #000
         line-height: initial
-    a
-        color: initial
+    a, a:hover
+        color: $brand-primary
+
+@media (min-width: 768px)
+    section.elementor-element
+        &:not(.reverse)
+            & > .elementor-container > .elementor-row
+                & > .elementor-column:not(:first-child) .elementor-column-wrap
+                    margin-left: 15px!important
+                & > .elementor-column:not(:last-child) .elementor-column-wrap
+                    margin-right: 15px!important
+        &.reverse
+            & > .elementor-container > .elementor-row
+                flex-direction: row-reverse
+                & > .elementor-column:not(:first-child) .elementor-column-wrap
+                    margin-right: 15px!important
+                & > .elementor-column:not(:last-child) .elementor-column-wrap
+                    margin-left: 15px!important
