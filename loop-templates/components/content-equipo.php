@@ -18,7 +18,7 @@
         <figure class="figure">
           <img src="<?php echo $member['imagen']['url']; ?>" alt="<?php echo $member['imagen']['alt']; // TODO thumbnail ?>">
           <div class="caption">
-            <a href="/equipo#<?php echo urlencode($member['nombre']); ?>"><?php echo $member['nombre']; ?></a>
+            <a href="/equipo#<?php echo urlencode($member['nombre']); ?>"><strong><?php echo $member['nombre']; ?></strong></a>
           </div>
         </figure>
       </div>

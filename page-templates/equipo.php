@@ -22,7 +22,7 @@ while ( have_posts() ) : the_post();
 					<section class="member" id="<?php echo urlencode($member['nombre']); ?>">
 						<div>
 							<div>
-								<h2 class="text-center"><?php echo $member['nombre']; ?></h2>
+								<h2><?php echo $member['nombre']; ?></h2>
 							</div>
 							<div class="<?php echo $index % 2 ? 'float-right' : 'float-left'; ?>">
 								<img
