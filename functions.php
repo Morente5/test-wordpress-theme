@@ -240,9 +240,7 @@ function get_my_title() {
         /* translators: Taxonomy term archive title. 1: Taxonomy singular name, 2: Current taxonomy term */
         $title = sprintf( __( '%1$s: %2$s' ), $tax->labels->singular_name, single_term_title( '', false ) );
     } elseif ( is_home() && !is_front_page() ) { // Blog
-        $title = get_the_title();
-    } elseif ( get_field('titulo') ) {
-        $title = get_field('titulo');
+        $title = get_field('titulo', get_option( 'page_for_posts' ));
     } elseif ( get_the_title() ) {
         $title = get_the_title();
     } else {
