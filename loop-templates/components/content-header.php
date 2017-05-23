@@ -11,7 +11,11 @@
   ?>
     style="background-image: url('<?php the_post_thumbnail_url('large'); ?>')"
   <?php
-  } 
+  } elseif ( has_category_thumbnail() ) {
+  ?>
+    style="background-image: url('<?php echo get_the_category_thumbnail()->url; ?>')"
+  <?php
+  }
   ?>
   >
   <div class="overlay-5 bg-white"></div>
