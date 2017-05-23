@@ -239,6 +239,8 @@ function get_my_title() {
         $tax = get_taxonomy( get_queried_object()->taxonomy );
         /* translators: Taxonomy term archive title. 1: Taxonomy singular name, 2: Current taxonomy term */
         $title = sprintf( __( '%1$s: %2$s' ), $tax->labels->singular_name, single_term_title( '', false ) );
+    } elseif ( is_home() && !is_front_page() ) { // Blog
+        $title = get_the_title();
     } elseif ( get_field('titulo') ) {
         $title = get_field('titulo');
     } elseif ( get_the_title() ) {
