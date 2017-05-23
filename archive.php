@@ -8,7 +8,8 @@
  */
 
 get_header();
-
+get_template_part( 'loop-templates/components/content', 'header' );
+get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 ?>
 
 <?php
@@ -31,7 +32,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
 					<header class="page-header">
 						<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						//the_archive_title( '<h1 class="page-title">', '</h1>' );
 						the_archive_description( '<div class="taxonomy-description">', '</div>' );
 						?>
 					</header><!-- .page-header -->

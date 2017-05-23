@@ -8,6 +8,8 @@
  */
 
 get_header();
+get_template_part( 'loop-templates/components/content', 'header' );
+get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 
 $container   = get_theme_mod( 'understrap_container_type' );
 $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );

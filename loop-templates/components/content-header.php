@@ -16,6 +16,6 @@
   >
   <div class="overlay-5 bg-white"></div>
   <div class="container">
-    <h1 class="display-4 text-center"><?php echo get_field('titulo') ? the_field('titulo') : the_title(); ?></h1>
+    <h1 class="display-4 text-center"><?php echo get_my_title(); ?></h1>
   </div>
 </div>
