@@ -44,7 +44,7 @@ get_template_part( 'loop-templates/components/content', 'main-blog' );
 						<span class="sr-only">Previous</span>
 					</a>
 					</li>
-					<li class="page-item"><a class="page-link"><span aria-label="This">1</span> / <span aria-label="Total"><?php echo ceil(get_total_posts('news') / 5); ?></span></a></li>
+					<li class="page-item"><a class="page-link"><span aria-label="This">1</span> / <span aria-label="Total"><?php echo ceil(get_total_posts('') / 5); ?></span></a></li>
 					<li class="page-item">
 					<a class="page-link" href="#" aria-label="Next">
 						<span aria-hidden="true">&raquo;</span>

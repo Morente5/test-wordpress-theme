@@ -7,7 +7,11 @@
 ?>
 <div class="jumbotron title pos-r"
   <?php
-  if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+  if ( is_home() && !is_front_page() ) { // Blog
+  ?>
+    style="background-image: url('<?php echo get_the_post_thumbnail_url(get_option( 'page_for_posts' ), 'large'); ?>')"
+  <?php
+  } elseif ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
   ?>
     style="background-image: url('<?php the_post_thumbnail_url('large'); ?>')"
   <?php
