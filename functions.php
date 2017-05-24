@@ -18,6 +18,21 @@ function theme_enqueue_styles() {
 
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array(), $the_theme->get( 'Version' ) );
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), $the_theme->get( 'Version' ), true );
+    wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
+    wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
+      'ajaxurl' => admin_url( 'admin-ajax.php' )
+    ));
+}
+
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
+function my_ajax_pagination() {
+    $category = $_POST['category'];
+    $page = $_POST['page'];
+    get_template_part( 'loop-templates/components/content', 'main-blog' );
+    get_my_posts($category, $page);
+    die();
 }
 
 function register_my_menus() {
@@ -255,6 +270,63 @@ function get_my_title() {
      * @param string $title Archive title to be displayed.
      */
     return apply_filters( 'get_my_title', $title );
+}
+
+
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_content(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }
+  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+  return $excerpt;
+}
+function custom_excerpt_more( $more ) {
+	return '...';
+}
+add_filter( 'excerpt_more', 'custom_excerpt_more' );
+function excerpt_read_more_link($output) {
+  return '';
+}
+add_filter('the_excerpt', 'excerpt_read_more_link');
+
+
+function yofisio_posted_on() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+
+  echo $time_string;
+}
+
+function yofisio_entry_footer() {
+	// Hide category and tag text for pages.
+	if ( 'post' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( esc_html__( ', ', 'understrap' ) );
+		if ( $categories_list && understrap_categorized_blog() ) {
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'understrap' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		}
+
+	}
+  
+	edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			esc_html__( 'Editar', 'understrap' ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		),
+		'<span class="edit-link">',
+		'</span>'
+	);
 }
 
 ?>

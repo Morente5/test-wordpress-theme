@@ -1,0 +1,60 @@
+#main.container
+  width: 100%
+.article-wrapper
+  position: relative
+  article
+    .container
+      padding: 0
+      width: 100%
+      height: 100%
+    margin: .5rem 0
+    padding: .75rem
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+    time
+      position: absolute
+      bottom: 0
+    .cat-links
+      position: absolute
+      bottom: 0
+      right: 0
+  +media-breakpoint-up(md)
+    article
+      margin: .5rem
+    float: left
+    &:before
+      content: ""
+      display: block
+      padding-top: 70%
+    &:first-child
+      width: 100%
+      header.entry-header h2
+        font-size: 3rem
+    &:not(:first-child)
+      width: 50%
+      font-size: .7rem!important
+      header.entry-header h2
+        font-size: 1.5rem
+        font-weight: 600
+    article
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+  +media-breakpoint-up(lg)
+    &:first-child
+      width: 50%
+    &:not(:first-child)
+      width: 25%
+      font-size: .5rem!important
+      header.entry-header h2
+        font-size: 1.25rem
+        font-weight: 600
+
+div[aria-label="Page Navigation"]
+  display: flex
+  ul.pagination
+      margin-left: auto
+      margin-right: auto
