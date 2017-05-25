@@ -7,14 +7,20 @@
   position: relative
   float: left
   width: 100%
+  font-size: .7rem
+  +media-breakpoint-up(sm)
+    font-size: 1rem
   &:before
     content: ""
     display: block
     padding-top: 70%
   header.entry-header h3
-    font-size: 3rem
+    font-size: 1.5rem
+    +media-breakpoint-up(sm)
+      font-size: 2rem
     font-weight: 600
   article
+    overflow: hidden
     &:hover
       transform: scale(1.05, 1.05)
     transition: all .5s
@@ -85,8 +91,8 @@
 div[aria-label="Page Navigation"]
   display: flex
   ul.pagination
-      margin-left: auto
-      margin-right: auto
+    margin-left: auto
+    margin-right: auto
 
 
 .link-entry:before
