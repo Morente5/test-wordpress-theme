@@ -1,5 +1,5 @@
 
-<div class="article-wrapper">
+<div class="card-inverse article-wrapper">
 		<article
 			<?php post_class(); ?>
 			id="post-<?php the_ID(); ?>"
@@ -12,12 +12,12 @@
 			?>
 		>
 			<div class="overlay-6 bg-info"></div>
-			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="foreground overlay"></a>
+			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="link-entry"></a>
 			<div class="container">
 				<header class="entry-header">
 			
-					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-					'</a></h2>' ); ?>
+					<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+					'</a></h3>' ); ?>
 			
 					<?php if ( 'post' == get_post_type() ) : ?>
 			
