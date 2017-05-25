@@ -29,9 +29,10 @@ add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
 
 function my_ajax_pagination() {
     $category = $_POST['category'];
+    $posts = $_POST['posts'];
     $page = $_POST['page'];
     get_template_part( 'loop-templates/components/content', 'main-blog' );
-    get_my_posts($category, $page);
+    get_my_posts($category, $posts, $page);
     die();
 }
 

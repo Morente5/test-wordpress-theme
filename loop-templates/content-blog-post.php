@@ -11,7 +11,7 @@
 			}
 			?>
 		>
-			<div class="overlay-6 bg-info"></div>
+			<div class="overlay-5 bg-info"></div>
 			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="link-entry"></a>
 			<div class="container">
 				<header class="entry-header">

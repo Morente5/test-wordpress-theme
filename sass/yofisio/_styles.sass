@@ -113,10 +113,10 @@ section
 
 .gm-style-iw
     *
-        color: #000
-        line-height: initial
+        color: #000!important
+        line-height: initial!important
     a, a:hover
-        color: $brand-primary
+        color: $brand-primary!important
 
 @media (min-width: 768px)
     section.elementor-element
@@ -136,3 +136,6 @@ section
 
 .foreground
     z-index: 9999
+
+.zoomOutLeft, .zoomInLeft, .zoomOutRight, .zoomInRight
+    animation-duration: .3s

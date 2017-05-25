@@ -26,7 +26,7 @@ get_template_part( 'loop-templates/components/content', 'main-blog' );
 
 		<div class="row">
 
-			<main class="container container-main" id="main">
+			<main class="container container-main" id="main" data-display="5">
 				<?php get_my_posts('', 5, 1); ?>
 			</main><!-- #main -->
 
@@ -40,22 +40,23 @@ get_template_part( 'loop-templates/components/content', 'main-blog' );
 		<div class="row">
 
 			<?php foreach (get_categories() as $cat) { ?>
-			<div class="col-lg-6">
-				<h2><?php echo $cat->name ?></h2>
-					<main class="container container-category">
+			<div class="col-lg-6 p-0">
+				<div class="container" id="content" tabindex="-1">
+					<h2><?php echo $cat->name; ?></h2>
+
+					<main class="container container-category" id="<?php echo $cat->slug; ?>" data-display="2">
 						<?php get_my_posts($cat->slug, 2, 1); ?>
 					</main><!-- #main -->
-	
-				
-	
-				<div class="clearfix"></div>
-				<?php pagination('', 2) ?>
-		
-</div>
-<?php } ?>
 
-			</div><!-- Container end -->
-			</div><!-- .row -->
+					<div class="clearfix"></div>
+					<?php pagination($cat->slug, 2) ?>
+		
+				</div><!-- Container end -->
+			</div>
+			<?php } ?>
+
+		</div><!-- .row -->
+	</div><!-- Container end -->
 </section><!-- Wrapper end -->
 
 
