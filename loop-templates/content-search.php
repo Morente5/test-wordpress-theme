@@ -6,35 +6,21 @@
  */
 
 ?>
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+<section class="wrapper" id="content-wrapper">
 
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-		'</a></h2>' ); ?>
+	<div class="container" id="content" tabindex="-1">
+		<h2>Resultados de búsqueda sobre: <?php echo get_search_query( ); ?></h2>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
+		<div class="row">
 
-			<div class="entry-meta">
+			<main class="container container-main" id="main" data-display="13">
+				<?php get_my_posts('', 13, 1, get_search_query( )); ?>
+			</main><!-- #main -->
 
-				<?php understrap_posted_on(); ?>
+		</div><!-- .row -->
 
-			</div><!-- .entry-meta -->
+	</div><!-- Container end -->
 
-		<?php endif; ?>
 
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-
-		<?php the_excerpt(); ?>
-
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-
-		<?php understrap_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
-
-</article><!-- #post-## -->
+</section><!-- Wrapper end -->

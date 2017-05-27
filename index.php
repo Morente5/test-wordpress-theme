@@ -14,9 +14,6 @@
 get_header();
 get_template_part( 'loop-templates/components/content', 'header' );
 get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
-
-// Only function
-get_template_part( 'loop-templates/components/content', 'main-blog' );
 ?>
 
 <section class="wrapper" id="content-wrapper">
@@ -27,7 +24,7 @@ get_template_part( 'loop-templates/components/content', 'main-blog' );
 		<div class="row">
 
 			<main class="container container-main" id="main" data-display="5">
-				<?php get_my_posts('', 5, 1); ?>
+				<?php get_my_posts('', 5, 1, ''); ?>
 			</main><!-- #main -->
 
 		</div><!-- .row -->
@@ -45,7 +42,7 @@ get_template_part( 'loop-templates/components/content', 'main-blog' );
 					<h2><?php echo $cat->name; ?></h2>
 
 					<main class="container container-category" id="<?php echo $cat->slug; ?>" data-display="2">
-						<?php get_my_posts($cat->slug, 2, 1); ?>
+						<?php get_my_posts($cat->slug, 2, 1, ''); ?>
 					</main><!-- #main -->
 
 					<div class="clearfix"></div>

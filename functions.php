@@ -31,8 +31,9 @@ function my_ajax_pagination() {
     $category = $_POST['category'];
     $posts = $_POST['posts'];
     $page = $_POST['page'];
+    $keyword = $_POST['keyword'];
     get_template_part( 'loop-templates/components/content', 'main-blog' );
-    get_my_posts($category, $posts, $page);
+    get_my_posts($category, $posts, $page, $keyword);
     die();
 }
 
@@ -200,7 +201,7 @@ function yofisio_breadcrumbs() {
       echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-current-' . get_query_var('paged') . '"><strong class="bread-current bread-current-' . get_query_var('paged') . '" title="Page ' . get_query_var('paged') . '">'.__('Page') . ' ' . get_query_var('paged') . '</strong></li>';
     } else if ( is_search() ) {
       // Search results page
-      echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-current-' . get_search_query() . '"><strong class="bread-current bread-current-' . get_search_query() . '" title="Search results for: ' . get_search_query() . '">Search results for: ' . get_search_query() . '</strong></li>';
+      echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-current-' . get_search_query() . '"><strong class="bread-current bread-current-' . get_search_query() . '" title="Búsqueda: ' . get_search_query() . '">Búsqueda: ' . get_search_query() . '</strong></li>';
     } elseif ( is_404() ) {
       // 404 page
       echo '<li class="menu-item breadcrumb-item">' . 'Error 404' . '</li>';
@@ -216,6 +217,9 @@ function get_my_title() {
     } elseif ( is_tag() ) {
         /* translators: Tag archive title. 1: Tag name */
         $title = sprintf( __( 'Tag: %s' ), single_tag_title( '', false ) );
+    } elseif ( is_search() ) {
+        /* translators: Tag archive title. 1: Tag name */
+        $title = sprintf( __( 'Búsqueda: %s' ), get_search_query() );
     } elseif ( is_author() ) {
         /* translators: Author archive title. 1: Author name */
         $title = sprintf( __( 'Author: %s' ), get_the_author() );
@@ -259,6 +263,8 @@ function get_my_title() {
         $title = get_field('titulo', get_option( 'page_for_posts' ));
     } elseif ( get_the_title() ) {
         $title = get_the_title();
+    } elseif ( is_404() ) {
+        $title = '404: Página no encontrada';
     } else {
         $title = __( 'Archives' );
     }
@@ -275,7 +281,9 @@ function get_my_title() {
 
 
 function excerpt($limit) {
-  $excerpt = explode(' ', get_the_content(), $limit);
+  $content = get_the_content();
+  $content = wp_filter_nohtml_kses( $content );
+  $excerpt = explode(' ', $content, $limit);
   if (count($excerpt)>=$limit) {
     array_pop($excerpt);
     $excerpt = implode(" ",$excerpt).'...';
@@ -329,5 +337,54 @@ function yofisio_entry_footer() {
 		'</span>'
 	);
 }
+
+function get_my_posts($category, $posts, $page, $keyword) {
+    $params = array('post_status' => 'publish', 'posts_per_page' => $posts, 'paged' => $page);
+    if ( isset($category) && $category ) {
+        $params['category_name'] = $category;
+    }
+    if ( isset($keyword) && $keyword ) {
+        $params['s'] = $keyword;
+    }
+    $category_query = new WP_Query( $params );
+
+    if ( $category_query->have_posts() ) { 
+        while ( $category_query->have_posts() ) {
+            $category_query->the_post();
+            get_template_part( 'loop-templates/content', 'blog-post' );
+        }
+    } elseif ( $page == 1 ) {
+        get_template_part( 'loop-templates/content', 'none' );
+    }
+}
+
+function get_total_posts($category) {
+    if ( !isset($category) || !$category ) {
+        return wp_count_posts()->publish;
+    } else {
+        return get_terms(array('taxonomy' => 'category', 'slug' => $category))[0]->count;
+    }
+}
+
+function pagination($category, $posts) {
+    echo '<div aria-label="Page Navigation">';
+        echo '<ul class="pagination '.$category.'">';
+            echo '<li class="page-item">';
+                echo '<a class="page-link" href="#" aria-label="Previous">';
+                    echo '<span aria-hidden="true">&laquo;</span>';
+                    echo '<span class="sr-only">Previous</span>';
+                echo '</a>';
+            echo '</li>';
+            echo '<li class="page-item"><a class="page-link"><span aria-label="This">1</span> / <span aria-label="Total">'.ceil(get_total_posts($category) / $posts).'</span></a></li>';
+            echo '<li class="page-item">';
+                echo '<a class="page-link" href="#" aria-label="Next">';
+                    echo '<span aria-hidden="true">&raquo;</span>';
+                    echo '<span class="sr-only">Next</span>';
+                echo '</a>';
+            echo '</li>';
+        echo '</ul>';
+    echo '</div>';
+}
+
 
 ?>

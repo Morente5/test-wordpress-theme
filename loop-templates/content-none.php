@@ -9,24 +9,25 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="wrapper" id="content-wrapper">
 
-	<header class="page-header">
+	<div class="container" id="content" tabindex="-1">
 
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'understrap' ); ?></h1>
+		<h2 class="page-title"><?php esc_html_e( 'Nothing Found', 'understrap' ); ?></h2>
 
-	</header><!-- .page-header -->
 
-	<div class="page-content">
 
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'understrap' ), array(
-	'a' => array(
-		'href' => array(),
-	),
-) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<p>
+				<?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'understrap' ), array(
+					'a' => array(
+						'href' => array(),
+						),
+					) ), esc_url( admin_url( 'post-new.php' ) ) );
+				?>
+			</p>
 
 		<?php elseif ( is_search() ) : ?>
 
@@ -39,6 +40,25 @@
 			<?php
 				get_search_form();
 		endif; ?>
-	</div><!-- .page-content -->
-	
-</section><!-- .no-results -->
+
+	</div><!-- Container end -->
+</section>
+<section>
+	<div class="container" id="content" tabindex="-1">
+		<h2>Últimas entradas</h2>
+
+		<div class="row">
+
+			<main class="container container-main" id="main" data-display="5">
+				<?php get_my_posts('', 5, 1, ''); ?>
+			</main><!-- #main -->
+
+		</div><!-- .row -->
+		
+		<?php pagination('', 5) ?>
+
+	</div><!-- Container end -->
+
+
+</section><!-- Wrapper end -->
+

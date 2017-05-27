@@ -19,6 +19,10 @@
   ?>
     style="background-image: url('<?php echo get_the_category_thumbnail()->url; ?>')"
   <?php
+  } else {
+  ?>
+    style="background-image: url('<?php echo get_the_post_thumbnail_url(get_option( 'page_on_front' ), 'large'); ?>')"
+  <?php
   }
   ?>
   >

@@ -9,24 +9,23 @@
 get_header();
 get_template_part( 'loop-templates/components/content', 'header' );
 get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
-// Only function
-get_template_part( 'loop-templates/components/content', 'main-blog' );
+$cat = get_the_category()[0];
 ?>
 
 <section class="wrapper" id="content-wrapper">
 
 	<div class="container" id="content" tabindex="-1">
-		<h2>Últimas entradas sobre <?php echo get_the_category()[0]->name; ?></h2>
+		<h2>Últimas entradas sobre <?php echo $cat->name; ?></h2>
 
 		<div class="row">
 
-			<main class="container container-main" id="main" data-display="5">
-				<?php get_my_posts(get_the_category()[0]->slug, 5, 1); ?>
+			<main class="container container-main" id="<?php echo $cat->slug;?>" data-display="13">
+				<?php get_my_posts($cat->slug, 13, 1, ''); ?>
 			</main><!-- #main -->
 
 		</div><!-- .row -->
 		
-		<?php pagination('', 5) ?>
+		<?php pagination($cat->slug, 13) ?>
 
 	</div><!-- Container end -->
 
