@@ -9,13 +9,12 @@ get_header();
 get_template_part( 'loop-templates/components/content', 'header' );
 get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 get_template_part( 'loop-templates/components/content', 'subtitle' );
-$container   = get_theme_mod( 'understrap_container_type' );
 $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
 <div class="wrapper" id="single-wrapper">
 
-	<div class="<?php echo esc_html( $container ); ?>" id="content" tabindex="-1">
+	<div class="container" id="content" tabindex="-1">
 
 		<div class="row">
 
@@ -28,7 +27,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
 					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
 
-						<?php understrap_post_nav(); ?>
+						<?php yofisio_post_nav(); ?>
 
 					<?php
 					// If comments are open or we have at least one comment, load up the comment template.

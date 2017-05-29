@@ -8,13 +8,13 @@
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+	<header class="entry-header clearfix">
 
 		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<div class="entry-meta small">
+		<div class="entry-meta small float-right mb-2">
 
-			<?php understrap_posted_on(); ?>
+			Publicado el <?php yofisio_posted_on(); ?> en <?php yofisio_entry_footer(); ?>
 
 		</div><!-- .entry-meta -->
 
@@ -38,7 +38,7 @@
 
 	<footer class="entry-footer">
 
-		<?php understrap_entry_footer(); ?>
+		
 
 	</footer><!-- .entry-footer -->
 
