@@ -1,8 +1,14 @@
 #category-nav
 	.nav-link
 		font-family: 'AvenirNextLTPro-Bold'
+		font-variant: small-caps
 	.dropdown-menu
 		width: 250px
+	.container
+		margin: 0!important
+		padding: 0!important
+		+media-breakpoint-up(sm)
+			margin: auto!important
 
 .navbar-inverse .navbar-nav
 	.nav-link
@@ -12,6 +18,9 @@
 	.active
 		.nav-link
 			color: rgba(255,255,255,1)
+
+.navbar-toggler
+	z-index: 2000
 
 #categories-menu
 	+media-breakpoint-up(sm)
