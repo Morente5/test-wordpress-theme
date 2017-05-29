@@ -32,8 +32,8 @@
 		?>
 
 		<div id="crestashareiconincontent" class="inline-social clearfix">
-							<?php  add_social_button(); ?>
-						</div>
+			<?php add_social_button(); ?>
+		</div>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
