@@ -30,6 +30,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 		ga('create', 'UA-99987389-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+	<script type="text/javascript" src="//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js"></script>
+	<script type="text/javascript">window.newShareCountsAuto="smart";</script>
 </head>
 
 <body <?php body_class(); ?>>

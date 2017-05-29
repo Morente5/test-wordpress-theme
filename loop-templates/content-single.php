@@ -10,17 +10,15 @@
 
 	<header class="entry-header">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<div class="entry-meta">
+		<div class="entry-meta small">
 
 			<?php understrap_posted_on(); ?>
 
 		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
 
@@ -33,6 +31,9 @@
 		) );
 		?>
 
+		<div id="crestashareiconincontent" class="inline-social clearfix">
+							<?php  add_social_button(); ?>
+						</div>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
