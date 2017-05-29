@@ -19,7 +19,7 @@ while ( have_posts() ) : the_post();
 		<div class="container">
 			<div class="content">
 				<?php foreach (get_field('equipo') as $index => $member) { ?>
-					<section class="member" id="<?php echo urlencode($member['nombre']); ?>">
+					<section class="member" id="<?php echo sanitize_title($member['nombre']); ?>">
 						<div>
 							<div>
 								<h2><?php echo $member['nombre']; ?></h2>
