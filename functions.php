@@ -211,7 +211,9 @@ function yofisio_breadcrumbs() {
 }
 
 function get_my_title() {
-    if ( is_category() ) {
+    if ( get_field('titulo') ) {
+        $title = get_field('titulo');
+    } elseif ( is_category() ) {
         /* translators: Category archive title. 1: Category name */
         $title = sprintf( __( 'Noticias: %s' ), single_cat_title( '', false ) );
     } elseif ( is_tag() ) {
