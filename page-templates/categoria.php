@@ -16,7 +16,9 @@ while ( have_posts() ) : the_post();
 	get_template_part( 'loop-templates/components/content', 'subtitle' );
 	?>
 	<div class="wrapper" id="content-wrapper">
-		<?php get_template_part( 'loop-templates/components/content', 'categorias' ); ?>
+		<div class="container" id="content">
+			<?php the_content(); ?>
+		</div>
 	</div>
 <?php endwhile;
 
