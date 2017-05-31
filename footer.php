@@ -75,7 +75,7 @@ $the_theme = wp_get_theme();
 
 		<div class="row">
 			<div class="col">
-				<p>©2017 by <?php if (is_front_page()): ?><a href="https://braunmarketingandconsulting.es"><?php endif; ?>Braun Marketing & Consulting<?php if (is_front_page()): ?></a><?php endif; ?></p>
+				<p>©2017 by <?php if (is_front_page()): ?><a href="https://braunmarketingandconsulting.es" target="_blank"><?php endif; ?>Braun Marketing & Consulting<?php if (is_front_page()): ?></a><?php endif; ?></p>
 			</div>
 		</div>
 
