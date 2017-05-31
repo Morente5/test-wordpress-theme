@@ -481,7 +481,6 @@ function yofisio_post_nav() {
                 <h2 class="sr-only"><?php _e( 'Post navigation', 'understrap' ); ?></h2>
                 <div class="nav-links">
                     <?php
-
                         if ( get_previous_post_link() ) {
                             previous_post_link(
                                 '<div class="nav-previous float-left"><div class="nav-title">Anterior Noticia</div><div>%link</div></div>',
@@ -492,7 +491,7 @@ function yofisio_post_nav() {
                         if ( get_next_post_link() ) {
                             next_post_link(
                                 '<div class="nav-next float-right"><div class="nav-title">Siguiente Noticia</div><div class="float-right">%link</div></div>',
-                                _x( '<a rel="nofollow" >%title&nbsp;<i class="fa fa-hand-o-right"></i>', 'Next post link', 'understrap' ),
+                                _x( '%title&nbsp;<i class="fa fa-hand-o-right"></i>', 'Next post link', 'understrap' ),
                                 true
                             );
                         }
