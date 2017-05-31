@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
 					'understrap' ) ); ?></div>
 				<?php }
-if ( get_next_comments_link() ) { ?>
+				if ( get_next_comments_link() ) { ?>
 					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
 					'understrap' ) ); ?></div>
 				<?php } ?>
@@ -68,6 +68,7 @@ if ( get_next_comments_link() ) { ?>
 			wp_list_comments( array(
 				'style'      => 'ol',
 				'short_ping' => true,
+				'walker'     => new Yofisio_Comment_Walker()
 			) );
 			?>
 		</ol><!-- .comment-list -->
@@ -79,7 +80,7 @@ if ( get_next_comments_link() ) { ?>
 					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
 					'understrap' ) ); ?></div>
 				<?php }
-if ( get_next_comments_link() ) { ?>
+				if ( get_next_comments_link() ) { ?>
 					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
 					'understrap' ) ); ?></div>
 				<?php } ?>
