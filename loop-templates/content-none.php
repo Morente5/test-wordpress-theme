@@ -8,7 +8,7 @@
  */
 
 ?>
-
+<?php if (wp_count_posts()) { ?>
 <section class="wrapper" id="content-wrapper">
 
 	<div class="container" id="content" tabindex="-1">
@@ -62,3 +62,4 @@
 
 </section><!-- Wrapper end -->
 
+<?php } ?>

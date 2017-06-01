@@ -510,4 +510,18 @@ function yofisio_avatar($avatar_defaults) {
     return $avatar_defaults;
 }
 
+function add_to_head() { ?>
+    <meta name="application-name" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+    <meta name="theme-color" content="#2288ca">
+    <meta name="msapplication-TileColor" content="#2288ca">
+    <meta name="msapplication-TileImage" content="/wp-content/uploads/logo.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-startup-image" href="/wp-content/uploads/logo.png">
+    <link rel="icon" type="image/x-icon" href="/wp-content/uploads/icon.ico">
+    <link rel="icon" type="image/png" href="/wp-content/uploads/icon.png">
+    <link rel="apple-touch-icon" href="/wp-content/uploads/logo.png">
+<?php }
+add_action( 'wp_head', 'add_to_head' );
+
 ?>
