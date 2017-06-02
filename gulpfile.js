@@ -10,7 +10,8 @@ var basePaths = {
 var browserSyncWatchFiles = [
     './css/*.min.css',
     './js/*.min.js',
-    './*.php'
+    './*.php',
+    './**/*.php'
 ];
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
@@ -154,7 +155,7 @@ gulp.task('browser-sync', function() {
 // Run: 
 // gulp watch-bs
 // Starts watcher with browser-sync. Browser-sync reloads page automatically on your browser
-gulp.task('watch-bs', ['browser-sync', 'watch', 'minify-css'], function () { });
+gulp.task('watch-bs', ['watch', 'minify-css', 'browser-sync'], function () { });
 
 // Run: 
 // gulp scripts. 
