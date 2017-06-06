@@ -22,6 +22,6 @@ if ( is_home() && !is_front_page() ) { // Blog
 >
   <div class="overlay-4 bg-white"></div>
   <div class="container">
-    <h1 class="display-4 text-center"><?php echo get_my_title(); ?></h1>
+    <h1 class="text-center"><?php echo get_my_title(); ?></h1>
   </div>
 </div>
