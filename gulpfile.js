@@ -242,7 +242,7 @@ gulp.task('copy-assets', function() {
 // gulp dist
 // Copies the files to the /dist folder for distributon
 gulp.task('dist', ['clean-dist'], function() {
-    gulp.src(['**/*','!bower_components','!bower_components/**','!node_modules','!node_modules/**','!src','!src/**','!dist','!dist/**','!sass','!sass/**','!readme.txt','!readme.md','!package.json','!gulpfile.js','!CHANGELOG.md','!.travis.yml','!jshintignore', '!codesniffer.ruleset.xml', '*'])
+    gulp.src(['**/*', '!bower_components', '!bower_components/**', '!node_modules', '!node_modules/**', '!src', '!src/**', '!dist', '!dist/**', '!sass', '!sass/**', '!README.md', '!package.json', '!package-lock.json','!gulpfile.js','!CHANGELOG.md','!.travis.yml','!jshintignore', '!codesniffer.ruleset.xml', '*'])
     .pipe(gulp.dest('../yofisio/'))
 });
 
