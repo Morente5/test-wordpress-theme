@@ -7,7 +7,6 @@
  * @package understrap
  */
 
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -82,12 +81,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<nav id="category-nav" class="navbar navbar-toggleable navbar-inverse">
 		<div class="overlay-8 bg-info"></div>
-		<?php if ( 'container' == $container ) : ?>
-		<div class="container">
-		<?php endif; ?>
+		<div class="container text-center">
 		
-
-
 			<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#categoriesDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fa fa-bars" aria-hidden="true"></i>
 			</button>
@@ -105,9 +100,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					'walker'          => new WP_Bootstrap_Navwalker_YoFisio(),
 				)
 			); ?>
-		<?php if ( 'container' == $container ) : ?>
 		</div><!-- .container -->
-		<?php endif; ?>
 	</nav><!-- .site-navigation -->
 
 </div>
