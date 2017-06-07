@@ -61,7 +61,7 @@
 		'understrap' ); ?></a>
 
 		<div class="header-main">
-			<div class="container">
+			<div class="container text-center">
 				<!-- Your site title as branding in the menu -->
 				<?php if ( ! has_custom_logo() ) { ?>
 					<?php if ( is_front_page() && is_home() ) : ?>
@@ -81,7 +81,7 @@
 
 	<nav id="category-nav" class="navbar navbar-toggleable navbar-inverse">
 		<div class="overlay-8 bg-info"></div>
-		<div class="container text-center">
+		<div class="container">
 		
 			<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#categoriesDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fa fa-bars" aria-hidden="true"></i>
