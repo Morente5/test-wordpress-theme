@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6
 h1, h2
     font-variant: small-caps
 section
-    p
+    p:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6), li
         +media-breakpoint-up(md)
             text-align: justify
 
@@ -77,7 +77,7 @@ section
 
 .card-columns
     .card
-        margin-bottom: .75rem
+        margin-bottom: .75rem!important
         box-shadow: none!important
 
 .card-deck
