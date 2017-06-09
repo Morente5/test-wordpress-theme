@@ -450,14 +450,14 @@ function pagination($category, $posts) {
         echo '<ul class="pagination '.$category.'">';
             echo '<li class="page-item">';
                 echo '<a class="page-link" href="#" aria-label="Previous">';
-                    echo '<span aria-hidden="true">&laquo;</span>';
+                    echo '<span aria-hidden="true"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>';
                     echo '<span class="sr-only">Previous</span>';
                 echo '</a>';
             echo '</li>';
-            echo '<li class="page-item"><a class="page-link"><span aria-label="This">1</span> / <span aria-label="Total">'.ceil(get_total_posts($category) / $posts).'</span></a></li>';
+            echo '<li class="page-item disabled"><a class="page-link"><span aria-label="This">1</span> / <span aria-label="Total">'.ceil(get_total_posts($category) / $posts).'</span></a></li>';
             echo '<li class="page-item">';
                 echo '<a class="page-link" href="#" aria-label="Next">';
-                    echo '<span aria-hidden="true">&raquo;</span>';
+                    echo '<span aria-hidden="true"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>';
                     echo '<span class="sr-only">Next</span>';
                 echo '</a>';
             echo '</li>';
