@@ -32,7 +32,7 @@
 				<div class="entry-content">
 			
 					<?php
-					echo excerpt(20);
+					echo excerpt(30);
 					?>
 			
 				</div><!-- .entry-content -->
