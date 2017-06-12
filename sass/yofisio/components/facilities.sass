@@ -3,6 +3,7 @@ figure.wp-caption
   img
     margin: 0
   &::after
+    pointer-events: none
     transition: all .5s
     content: " "
     position: absolute
@@ -17,6 +18,7 @@ figure.wp-caption
     z-index: 10
     opacity: 0
   figcaption.wp-caption-text
+    pointer-events: none
     position: absolute
     bottom: 0
     right: 0
@@ -32,3 +34,8 @@ figure.wp-caption
       opacity: 1
     figcaption.wp-caption-text
       opacity: 1
+
+@media (max-width: 767px)
+  .elementor-row
+    & > .elementor-column:not(:last-child)
+      margin-bottom: 2rem!important
