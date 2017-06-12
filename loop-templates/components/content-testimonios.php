@@ -24,7 +24,12 @@
               </div>
             </div>
             <div class="testimonio-desc">
-                <img src="<?php echo $testimonio['imagen']['url']; ?>" alt="<?php echo $testimonio['imagen']['alt']; ?>">
+                <?php
+                  $attr = array(
+                    'alt' => $testimonio['imagen']['alt'],
+                  );
+                  echo wp_get_attachment_image( $testimonio['imagen']['id'], 'thumbnail', $attr);
+                ?>
                 <div class="testimonio-writer">
                   <div class="testimonio-writer-name"><?php echo $testimonio['nombre']; ?></div>
                   <div class="testimonio-writer-designation"><?php echo $testimonio['profesion']; ?></div>

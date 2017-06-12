@@ -25,10 +25,13 @@ while ( have_posts() ) : the_post();
 								<h2><?php echo $member['nombre']; ?></h2>
 							</div>
 							<div class="<?php echo $index % 2 ? 'float-right' : 'float-left'; ?>">
-								<img
-									src="<?php echo $member['imagen']['url']; ?>"
-									alt="<?php echo $member['imagen']['alt']; ?>"
-								>
+								<?php
+									$attr = array(
+										'title' => $member['nombre'],
+										'alt' => $member['nombre'],
+									);
+									echo wp_get_attachment_image( $member['imagen']['id'], 'large', $attr);
+								?>
 							</div>
 							<?php echo $member['texto'] ?>
 						</div>

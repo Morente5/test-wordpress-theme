@@ -20,10 +20,12 @@
             </div>
         
             <div class="col-md-6 pull-md-6">
-              <img
-                src="<?php echo get_field('imagen_introduccion_categorias')['url']; ?>"
-                alt="<?php echo get_field('imagen_introduccion_categorias')['alt']; ?>"
-              >
+              <?php
+                $attr = array(
+                  'alt' => get_field('imagen_introduccion_categorias')['alt'],
+                );
+                echo wp_get_attachment_image( get_field('imagen_introduccion_categorias')['id'], 'large', $attr);
+              ?>
             </div>
         
           </div>
@@ -50,10 +52,12 @@
             </div>
 
             <div class="col-md-6<?php echo $i % 2 ? ' pull-md-6' : ''; ?>">
-              <img
-                src="<?php echo $categoria['imagen']['url']; ?>"
-                alt="<?php echo $categoria['imagen']['alt']; ?>"
-              >
+              <?php
+                  $attr = array(
+                    'alt' => $categoria['imagen']['alt'],
+                  );
+                  echo wp_get_attachment_image( $categoria['imagen']['id'], 'large', $attr);
+              ?>
             </div>
 
           </div>
