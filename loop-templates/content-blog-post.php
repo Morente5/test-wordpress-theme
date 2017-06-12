@@ -3,14 +3,22 @@
 		<article
 			<?php post_class(); ?>
 			id="post-<?php the_ID(); ?>"
+		>
 			<?php
 			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 			?>
-				style="background-image: url('<?php the_post_thumbnail_url('large'); ?>')"
+				<div class="overlay">
+					<?php
+						$attr = array(
+							'title' => get_the_title(),
+							'alt' => get_the_title(),
+						);
+						the_post_thumbnail('large', $attr);
+					?>
+				</div>
 			<?php
 			}
 			?>
-		>
 			<div class="overlay bg-gradient"></div>
 			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="link-entry"></a>
 			<div class="container">

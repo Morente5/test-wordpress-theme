@@ -20,7 +20,17 @@ if ( is_home() && !is_front_page() ) { // Blog
 ?>
 <div class="jumbotron title pos-r">
   <div class="overlay-4 bg-white"></div>
-  <div class="overlay <?php the_field('position'); ?>"><?php echo wp_get_attachment_image($img, 'full'); ?></div>
+  <div class="overlay">
+    <?php
+      // HEADER IMAGE
+      $attr = array(
+        'title' => get_my_title(),
+        'alt' => get_my_title(),
+        'class' =>  get_field('position'),
+      );
+      echo wp_get_attachment_image($img, 'full', false, $attr);
+    ?>
+  </div>
   <div class="container">
     <h1 class="text-center"><?php echo get_my_title(); ?></h1>
   </div>
