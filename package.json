@@ -43,6 +43,7 @@
     "node-sass": "^4.5.3",
     "run-sequence": "^1.2.2",
     "understrap": "^0.6.2",
-    "undescores-for-npm": "^1.0.0"
+    "undescores-for-npm": "^1.0.0",
+    "wowjs": "^1.1.3"
   }
 }

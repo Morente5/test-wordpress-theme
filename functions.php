@@ -19,6 +19,7 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array(), $the_theme->get( 'Version' ) );
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), $the_theme->get( 'Version' ), true );
     wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), $the_theme->get( 'Version' ), true );
+    wp_enqueue_script( 'animation',  get_stylesheet_directory_uri() . '/js/wow.js', array( 'jquery' ), $the_theme->get( 'Version' ), true );
     wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
       'ajaxurl' => admin_url( 'admin-ajax.php' )
     ));
@@ -170,26 +171,26 @@ function yofisio_breadcrumbs() {
       $get_term_name  = $terms[0]->name;
       // Display the tag name
       echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-tag-' . $get_term_id . ' menu-item-tag-' . $get_term_slug . '"><strong class="bread-current bread-tag-' . $get_term_id . ' bread-tag-' . $get_term_slug . '">' . $get_term_name . '</strong></li>';
-    } elseif ( is_day() ) {
-      // Day archive
-      // Year link
-      echo '<li class="menu-item breadcrumb-item menu-item-year menu-item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></li>';
-      //echo '<li class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </li>';
-      // Month link
-      echo '<li class="menu-item breadcrumb-item menu-item-month menu-item-month-' . get_the_time('m') . '"><a class="bread-month bread-month-' . get_the_time('m') . '" href="' . get_month_link( get_the_time('Y'), get_the_time('m') ) . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</a></li>';
-      //echo '<li class="separator separator-' . get_the_time('m') . '"> ' . $separator . ' </li>';
-      // Day display
-      echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-' . get_the_time('j') . '"><strong class="bread-current bread-' . get_the_time('j') . '"> ' . get_the_time('jS') . ' ' . get_the_time('M') . ' Archives</strong></li>';
-    } else if ( is_month() ) {
-      // Month Archive
-      // Year link
-      echo '<li class="menu-item breadcrumb-item menu-item-year menu-item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></li>';
-      //echo '<li class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </li>';
-      // Month display
-      echo '<li class="menu-item breadcrumb-item menu-item-month menu-item-month-' . get_the_time('m') . '"><strong class="bread-month bread-month-' . get_the_time('m') . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</strong></li>';
-    } else if ( is_year() ) {
-      // Display year archive
-      echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-current-' . get_the_time('Y') . '"><strong class="bread-current bread-current-' . get_the_time('Y') . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</strong></li>';
+    // } elseif ( is_day() ) {
+    //   // Day archive
+    //   // Year link
+    //   echo '<li class="menu-item breadcrumb-item menu-item-year menu-item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></li>';
+    //   //echo '<li class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </li>';
+    //   // Month link
+    //   echo '<li class="menu-item breadcrumb-item menu-item-month menu-item-month-' . get_the_time('m') . '"><a class="bread-month bread-month-' . get_the_time('m') . '" href="' . get_month_link( get_the_time('Y'), get_the_time('m') ) . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</a></li>';
+    //   //echo '<li class="separator separator-' . get_the_time('m') . '"> ' . $separator . ' </li>';
+    //   // Day display
+    //   echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-' . get_the_time('j') . '"><strong class="bread-current bread-' . get_the_time('j') . '"> ' . get_the_time('jS') . ' ' . get_the_time('M') . ' Archives</strong></li>';
+    // } else if ( is_month() ) {
+    //   // Month Archive
+    //   // Year link
+    //   echo '<li class="menu-item breadcrumb-item menu-item-year menu-item-year-' . get_the_time('Y') . '"><a class="bread-year bread-year-' . get_the_time('Y') . '" href="' . get_year_link( get_the_time('Y') ) . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</a></li>';
+    //   //echo '<li class="separator separator-' . get_the_time('Y') . '"> ' . $separator . ' </li>';
+    //   // Month display
+    //   echo '<li class="menu-item breadcrumb-item menu-item-month menu-item-month-' . get_the_time('m') . '"><strong class="bread-month bread-month-' . get_the_time('m') . '" title="' . get_the_time('M') . '">' . get_the_time('M') . ' Archives</strong></li>';
+    // } else if ( is_year() ) {
+    //   // Display year archive
+    //   echo '<li class="menu-item breadcrumb-item active menu-item-current menu-item-current-' . get_the_time('Y') . '"><strong class="bread-current bread-current-' . get_the_time('Y') . '" title="' . get_the_time('Y') . '">' . get_the_time('Y') . ' Archives</strong></li>';
     } else if ( is_author() ) {
       // Auhor archive
       // Get the author information
@@ -518,7 +519,7 @@ function add_to_head() { ?>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="apple-touch-startup-image" href="/wp-content/uploads/logo.png">
-    <link rel="icon" type="image/x-icon" href="/wp-content/uploads/icon.ico">
+    <link rel="icon" type="image/x-icon" href="/wp-content/uploads/icon.png">
     <link rel="icon" type="image/png" href="/wp-content/uploads/icon.png">
     <link rel="apple-touch-icon" href="/wp-content/uploads/logo.png">
 <?php }

@@ -163,13 +163,11 @@ gulp.task('watch-bs', ['watch', 'minify-css', 'browser-sync'], function () { });
 gulp.task('scripts', function() {
     var scripts = [
         basePaths.dev + 'js/tether.js', // Must be loaded before BS4
-
         // Start - All BS4 stuff
         basePaths.dev + 'js/bootstrap4/bootstrap.js',
-
         // End - All BS4 stuff
-
-        basePaths.dev + 'js/skip-link-focus-fix.js'
+        basePaths.dev + 'js/skip-link-focus-fix.js',
+        basePaths.dev + 'js/wow.js'
     ];
   gulp.src(scripts)
     .pipe(concat('child-theme.min.js'))
@@ -220,6 +218,10 @@ gulp.task('copy-assets', function() {
     gulp.src(basePaths.node + 'jquery/dist/*.js')
         .pipe(gulp.dest(basePaths.dev + '/js'));
 
+// wow JS files
+    gulp.src(basePaths.node + 'wowjs/dist/*.js')
+        .pipe(gulp.dest(basePaths.dev + '/js'));
+
 // _s SCSS files
     gulp.src(basePaths.node + 'undescores-for-npm/sass/**/*.scss')
         .pipe(gulp.dest(basePaths.dev + '/sass/underscores'));
@@ -227,7 +229,6 @@ gulp.task('copy-assets', function() {
 // _s JS files
     gulp.src(basePaths.node + 'undescores-for-npm/js/*.js')
         .pipe(gulp.dest(basePaths.dev + '/js'));
-
 
 // Copy Tether JS files
     gulp.src(basePaths.node + 'tether/dist/js/*.js')

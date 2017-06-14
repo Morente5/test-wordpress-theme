@@ -15,7 +15,7 @@
     
     <?php foreach (get_field('equipo', $equipo_page->ID) as $member) { ?>
       <div class="col-sm-6 col-md text-center">
-        <figure class="figure">
+        <figure class="figure wow fadeInUp">
           <?php
             $attr = array(
               'alt' => $member['imagen']['alt'],
