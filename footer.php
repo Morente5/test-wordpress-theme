@@ -53,14 +53,14 @@ $the_theme = wp_get_theme();
 							<ul class="list-unstyled">
 							<?php
 								foreach (get_field('telefonos', $contactoID) as $tel) {
-									echo '<li><a data-rel="external" href="tel:'.$tel['telefono'].'"><i class="fa fa-phone-square" aria-hidden="true"></i> '.$tel['telefono'].'</a></li>';
+									echo '<li><a rel="nofollow" target="_blank" data-rel="external" href="tel:'.$tel['telefono'].'"><i class="fa fa-phone-square" aria-hidden="true"></i> '.$tel['telefono'].'</a></li>';
 								}
 							?>
 							</ul>
 						<?php } ?>
 						<?php if (get_field('email', $contactoID)) { ?>
 							<h6>Email</h6>
-							<p><a data-rel="external" href="mailto:<?php the_field('email', $contactoID) ?>"><i class="fa fa-envelope-square" aria-hidden="true"></i> <?php the_field('email', $contactoID) ?></a></p>
+							<p><a rel="nofollow" target="_blank" data-rel="external" href="mailto:<?php the_field('email', $contactoID) ?>"><i class="fa fa-envelope-square" aria-hidden="true"></i> <?php the_field('email', $contactoID) ?></a></p>
 						<?php } ?>
 					</div>
 					<div class="col-lg-4">
@@ -103,7 +103,7 @@ function initMap() {
 			icon: '<?php echo get_field('marker', $contactoID); ?>'
 		});
 		var infowindow = new google.maps.InfoWindow({
-			content: '<?php echo get_field('direccion', $contactoID)['address']; ?><br><a rel="nofollow" href="https://www.google.com/maps/place/Clinica+de+FISIOTERAPIA+Y+OSTEOPATIA+PTERION/@37.1549751,-3.5970512,19z/data=!3m1!4b1!4m5!3m4!1s0xd71fb5f2cc51789:0x8b84ae1ae66acbf2!8m2!3d37.154974!4d-3.596504?hl=es">Abrir en Google Maps</a>'
+			content: '<?php echo get_field('direccion', $contactoID)['address']; ?><br><a rel="nofollow" target="_blank" href="https://www.google.com/maps/place/Clinica+de+FISIOTERAPIA+Y+OSTEOPATIA+PTERION/@37.1549751,-3.5970512,19z/data=!3m1!4b1!4m5!3m4!1s0xd71fb5f2cc51789:0x8b84ae1ae66acbf2!8m2!3d37.154974!4d-3.596504?hl=es">Abrir en Google Maps</a>'
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
