@@ -42,7 +42,8 @@ function register_my_menus() {
   register_nav_menus(
     array(
       'social-menu' => __( 'Menú Social' ),
-      'categories-menu' => __( 'Menú Categorías' )
+      'categories-menu' => __( 'Menú Categorías' ),
+      'footer-menu' => __( 'Menú Footer' ),
     )
   );
 }

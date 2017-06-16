@@ -21,7 +21,7 @@ $the_theme = wp_get_theme();
 				<h4>Categorías</h4>
 				<?php wp_nav_menu(
 				array(
-					'theme_location'  => 'categories-menu',
+					'theme_location'  => 'footer-menu',
 					'container_id'    => 'categories-footer',
 					'menu_id'         => 'categories-menu-footer',
 					'depth' => 1
