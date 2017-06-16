@@ -24,13 +24,15 @@ while ( have_posts() ) : the_post();
 				<?php if (get_field('titulo_mapa')) { ?>
 					<h2><?php the_field('titulo_mapa') ?></h2>
 				<?php } ?>
-				<div class="map"></div>
+				<div class="map wow fadeInLeft"></div>
 			</div>
 			<div class="col-md-6">
 				<?php if (get_field('titulo_formulario')) { ?>
 					<h2><?php the_field('titulo_formulario') ?></h2>
 				<?php } ?>
-				<?php echo do_shortcode( '[contact-form-7 id="268" title="Contacto"]' ); ?>
+				<div class="wow fadeInRight">
+					<?php echo do_shortcode( '[contact-form-7 id="268" title="Contacto"]' ); ?>
+				</div>
 			</div>
 		</div>
 	</div>

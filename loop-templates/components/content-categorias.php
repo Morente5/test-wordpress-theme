@@ -19,7 +19,7 @@
               </div>
             </div>
         
-            <div class="col-md-6 pull-md-6">
+            <div class="wow fadeInLeft col-md-6 pull-md-6">
               <?php
                 $attr = array(
                   'alt' => get_field('imagen_introduccion_categorias')['alt'],
@@ -51,7 +51,7 @@
               <?php echo $categoria['texto']; ?>
             </div>
 
-            <div class="col-md-6<?php echo $i % 2 ? ' pull-md-6' : ''; ?>">
+            <div class="wow col-md-6<?php echo $i % 2 ? ' pull-md-6 fadeInLeft' : ' fadeInRight'; ?>">
               <?php
                   $attr = array(
                     'alt' => $categoria['imagen']['alt'],

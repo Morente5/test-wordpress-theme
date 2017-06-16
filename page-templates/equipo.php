@@ -24,7 +24,7 @@ while ( have_posts() ) : the_post();
 							<div>
 								<h2><?php echo $member['nombre']; ?></h2>
 							</div>
-							<div class="<?php echo $index % 2 ? 'float-right' : 'float-left'; ?>">
+							<div class="<?php echo $index % 2 ? 'float-right wow fadeInRight' : 'float-left wow fadeInLeft'; ?>">
 								<?php
 									$attr = array(
 										'title' => $member['nombre'],
