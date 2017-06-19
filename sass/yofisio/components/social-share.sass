@@ -1,13 +1,18 @@
 .cresta-the-count
   background: $brand-primary!important
 
-@media (max-width: 768px)
++media-breakpoint-down(sm)
   #crestashareicon
     display: none !important
+
+#total-shares.sbutton
+  display: none!important
 
 .inline-social
   margin: 0 auto!important
   display: table
+  #total-shares.sbutton
+    display: inherit!important
   #crestashareicon
     all: unset!important
     left: 0
@@ -15,13 +20,15 @@
 
     & > .sbutton
       clear: initial!important
-      margin: 10px 5px!important
-    &.cresta-share-icon .sbutton i
-      padding: 0!important
-      width: 40px!important
-      height: 40px!important
-      text-align: center!important
-      padding: 11px 0!important
-      line-height: 1em!important
+      margin: 11px 5px!important
     .cresta-the-count
       display: inline-block!important
+
+.cresta-share-icon .sbutton i
+  padding: 9px 0!important
+  &:before
+    font-size: 18px
+
++media-breakpoint-up(md)
+  .whatsapp-cresta-share
+    display: none!important
