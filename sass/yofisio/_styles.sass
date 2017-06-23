@@ -18,10 +18,15 @@ h1, h2, h3, h4, h5, h6
     font-family: 'AvenirNextLTPro-Bold'
 h1, h2
     font-variant: small-caps
-section
+.wrapper
     p:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6), li
         +media-breakpoint-up(md)
             text-align: justify
+    h2
+        margin-bottom: 1.5rem
+        padding: .5rem
+        text-align: center
+        background-color: rgba($brand-primary, 0.85)!important
 
 @import "components/social-menu"
 @import "components/social-share"
@@ -43,11 +48,6 @@ section
 
 section
     margin-bottom: 2rem
-    h2
-        margin-bottom: 1.5rem
-        padding: .5rem
-        text-align: center
-        background-color: rgba($brand-primary, 0.85)!important
 
 .bg-white
     background-color: #fff

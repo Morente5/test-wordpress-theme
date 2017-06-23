@@ -290,11 +290,11 @@ class Yofisio_Comment_Walker extends Walker_Comment {
 }
 
 function get_my_title() {
-    if ( get_field('titulo') ) {
-        $title = get_field('titulo');
+    if ( is_home() && !is_front_page() ) { // Blog
+        $title = get_field('titulo', get_option( 'page_for_posts' ));
     } elseif ( is_category() ) {
         /* translators: Category archive title. 1: Category name */
-        $title = sprintf( __( 'Noticias: %s' ), single_cat_title( '', false ) );
+        $title = sprintf( 'Noticias: %s', single_cat_title( '', false ) );
     } elseif ( is_tag() ) {
         /* translators: Tag archive title. 1: Tag name */
         $title = sprintf( __( 'Tag: %s' ), single_tag_title( '', false ) );
@@ -313,6 +313,8 @@ function get_my_title() {
     } elseif ( is_day() ) {
         /* translators: Daily archive title. 1: Date */
         $title = sprintf( __( 'Day: %s' ), get_the_date( _x( 'F j, Y', 'daily archives date format' ) ) );
+    } elseif ( get_field('titulo') ) {
+        $title = get_field('titulo');
     } elseif ( is_tax( 'post_format' ) ) {
         if ( is_tax( 'post_format', 'post-format-aside' ) ) {
             $title = _x( 'Asides', 'post format archive title' );
@@ -340,8 +342,6 @@ function get_my_title() {
         $tax = get_taxonomy( get_queried_object()->taxonomy );
         /* translators: Taxonomy term archive title. 1: Taxonomy singular name, 2: Current taxonomy term */
         $title = sprintf( __( '%1$s: %2$s' ), $tax->labels->singular_name, single_term_title( '', false ) );
-    } elseif ( is_home() && !is_front_page() ) { // Blog
-        $title = get_field('titulo', get_option( 'page_for_posts' ));
     } elseif ( get_the_title() ) {
         $title = get_the_title();
     } elseif ( is_404() ) {

@@ -7,12 +7,12 @@
 if ( is_home() && !is_front_page() ) { // Blog
   $imgURL = get_the_post_thumbnail_url(get_option( 'page_for_posts' ), 'full');
   $img = get_post_thumbnail_id(get_option( 'page_for_posts' ));
-} elseif ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
-  $imgURL = get_the_post_thumbnail_url($post, 'full');
-  $img = get_post_thumbnail_id($post);
 } elseif ( has_category_thumbnail() ) {
   $imgURL = get_the_category_thumbnail()->url;
   $img = get_the_category_thumbnail()->id;
+} elseif ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+  $imgURL = get_the_post_thumbnail_url($post, 'full');
+  $img = get_post_thumbnail_id($post);
 } else {
   $imgURL = get_the_post_thumbnail_url(get_option( 'page_on_front' ), 'full');
   $img = get_post_thumbnail_id(get_option( 'page_on_front' ));
