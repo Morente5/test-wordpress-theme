@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6
     font-family: 'AvenirNextLTPro-Bold'
 h1, h2
     font-variant: small-caps
-.wrapper, .container, :not(footer)
+.wrapper, .container
     p:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6), li
         +media-breakpoint-up(md)
             text-align: justify
@@ -27,6 +27,10 @@ h1, h2
         padding: .5rem
         text-align: center
         background-color: rgba($brand-primary, 0.85)!important
+
+footer
+    p
+        text-align: left!important
 
 @import "components/social-menu"
 @import "components/social-share"
@@ -177,3 +181,11 @@ section
 
 .map img
     box-shadow: none!important
+
+#ez-toc-container
+    font-weight: 600
+    border: none!important
+    border-radius: 0!important
+    box-shadow: 2px 2px 5px rgba(0,0,0,.23)!important
+    p.ez-toc-title
+        font-weight: 600
