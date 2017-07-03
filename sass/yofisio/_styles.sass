@@ -97,10 +97,11 @@ section
     color: rgba(255,255,255,.85)
 
 .blockquote
-    border-left: .25rem solid rgba($brand-warning, .85)
-    font-family: AvenirNextLTPro-Cn
+    margin: 1rem 2rem!important
+    border-left: .33rem solid rgba($brand-warning, .85)!important
+    font-family: AvenirNextLTPro-Cn!important
     strong
-        font-family: AvenirNextLTPro-Cn
+        font-family: AvenirNextLTPro-Cn!important
 
 .highlight
     font-family: AvenirNextLTPro-Demi
@@ -172,12 +173,24 @@ section
 .card, .wrapper h2, .wrapper img, .highlight, .map, main.container-main article
     box-shadow: 2px 2px 5px rgba(0,0,0,.23)!important
 
-.alignright
-    margin-left: 10px
-    padding: 0!important
-.alignleft
-    margin-right: 10px
-    padding: 0!important
+.entry-content
+    img, figure
+        &.alignright
+            margin: 15px 0
+            padding: 0!important
+            width: 100%
+            @media (min-width: 768px)
+                margin: 0 0 15px 15px
+                width: auto
+                max-width: 50%
+        &.alignleft
+            margin: 15px 0
+            padding: 0!important
+            width: 100%
+            @media (min-width: 768px)
+                margin: 0 15px 15px 0
+                width: auto
+                max-width: 50%
 
 .map img
     box-shadow: none!important
@@ -189,3 +202,24 @@ section
     box-shadow: 2px 2px 5px rgba(0,0,0,.23)!important
     p.ez-toc-title
         font-weight: 600
+
+.entry-ratings
+     height: 40px
+     display: block
+     img
+        box-shadow: none!important
+        margin-top: -4px
+
+.pullquote-align-left 
+    border-right: .33rem solid rgba($brand-warning, .85)!important
+
+.pullquote-align-right
+    border-left: .33rem solid rgba($brand-warning, .85)!important
+
+.pullquote-align-full
+    border-left: .33rem solid rgba($brand-warning, .85)!important
+
+@media screen and (max-width: 768px) 
+    .perfect-pullquote
+        border-left: .33rem solid rgba($brand-warning, .85)!important
+
