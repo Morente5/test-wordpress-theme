@@ -362,7 +362,7 @@ function get_my_title() {
 
 
 function excerpt($limit) {
-  $content = get_the_content();
+  $content = strip_shortcodes(get_the_content());
   $content = wp_filter_nohtml_kses( $content );
   $excerpt = explode(' ', $content, $limit);
   if (count($excerpt)>=$limit) {
