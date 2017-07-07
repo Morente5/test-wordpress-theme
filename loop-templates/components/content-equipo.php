@@ -20,7 +20,7 @@
             $attr = array(
               'alt' => $member['imagen']['alt'],
             );
-            echo wp_get_attachment_image( $member['imagen']['id'], 'large', $attr);
+            echo wp_get_attachment_image( $member['imagen']['id'], 'medium-large', $attr);
           ?>
           <div class="caption">
             <a href="/equipo#<?php echo sanitize_title($member['nombre']); ?>"><strong><?php echo $member['nombre']; ?></strong></a>
