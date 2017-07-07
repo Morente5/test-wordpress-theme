@@ -1,4 +1,16 @@
 <?php
+function js_async_attr($tag){
+    $scripts_to_exclude = array();
+
+    foreach($scripts_to_exclude as $exclude_script){
+        if(true == strpos($tag, $exclude_script ) )
+        return $tag; 
+    }
+
+    return str_replace( ' src', ' async defer src', $tag );
+}
+add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+
 function understrap_remove_scripts() {
     wp_dequeue_style( 'understrap-styles' );
     wp_deregister_style( 'understrap-styles' );
