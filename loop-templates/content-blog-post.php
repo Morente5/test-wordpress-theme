@@ -13,7 +13,7 @@
 							'title' => get_the_title(),
 							'alt' => get_the_title(),
 						);
-						the_post_thumbnail('large', $attr);
+						the_post_thumbnail('medium_large', $attr);
 					?>
 				</div>
 			<?php

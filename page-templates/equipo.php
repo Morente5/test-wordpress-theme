@@ -30,7 +30,7 @@ while ( have_posts() ) : the_post();
 										'title' => $member['nombre'],
 										'alt' => $member['nombre'],
 									);
-									echo wp_get_attachment_image( $member['imagen']['id'], 'large', $attr);
+									echo wp_get_attachment_image( $member['imagen']['id'], 'medium_large', $attr);
 								?>
 							</div>
 							<?php echo $member['texto'] ?>

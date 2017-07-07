@@ -24,7 +24,7 @@
                 $attr = array(
                   'alt' => get_field('imagen_introduccion_categorias')['alt'],
                 );
-                echo wp_get_attachment_image( get_field('imagen_introduccion_categorias')['id'], 'medium-large', $attr);
+                echo wp_get_attachment_image( get_field('imagen_introduccion_categorias')['id'], 'medium_large', $attr);
               ?>
             </div>
         
@@ -56,7 +56,7 @@
                   $attr = array(
                     'alt' => $categoria['imagen']['alt'],
                   );
-                  echo wp_get_attachment_image( $categoria['imagen']['id'], 'medium-large', $attr);
+                  echo wp_get_attachment_image( $categoria['imagen']['id'], 'medium_large', $attr);
               ?>
             </div>
 
