@@ -21,9 +21,17 @@
   margin: 2rem auto!important
   max-height: 200px
   max-width: 400px
+.navbar-home
+  .navbar-brand
+    margin: 0!important
+    padding: 0!important
+    img
+      height: 2.5rem
+      width: auto
 
 // Navigation bar
 #navigation-nav
+  z-index: 1
   .container
     padding: 0
   .navbar-nav.navbar-top
@@ -31,10 +39,16 @@
     .nav-link
       padding-right: .5rem
       padding-left: .5rem
+  &.navbar-home
+    .is-right, .is-left
+
+      width: auto
+      vertical-align: middle
 
 
 // Category nav
 #category-nav
+  z-index: 1
   .container
     margin: 0!important
     +media-breakpoint-up(sm)
@@ -91,3 +105,14 @@
     margin-bottom: 1rem
     +media-breakpoint-up(sm)
       font-size: 3.5rem
+  &.jumbotron-home.title
+    padding: 0!important
+    min-height: 100vh
+    a
+      color: $brand-info!important
+    .dropdown-menu a:not(:hover):not(:focus):not(:active)
+      color: $brand-primary!important
+    .home-height
+      height: 100%
+    h1
+      margin-top: calc(50vh - 10rem)

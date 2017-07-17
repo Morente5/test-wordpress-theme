@@ -18,20 +18,91 @@ if ( is_home() && !is_front_page() ) { // Blog
   $img = get_post_thumbnail_id(get_option( 'page_on_front' ));
 }
 ?>
-<div class="jumbotron title pos-r">
-  <div class="overlay-4 bg-white"></div>
-  <div class="overlay">
-    <?php
-      // HEADER IMAGE
-      $attr = array(
-        'title' => get_my_title(),
-        'alt' => get_my_title(),
-        'class' =>  get_field('position'),
-      );
-      echo wp_get_attachment_image($img, 'full', false, $attr);
-    ?>
+
+<div class="hfeed site" id="page">
+
+	<!-- ******************* The Navbar Area ******************* -->
+	<?php $frontpage_id = get_option( 'page_on_front' ); ?>
+	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar" style="background-image: url('<?php the_field('imagen', $frontpage_id); ?>')">
+
+		<nav id="navigation-nav" class="navbar navbar-inverse">
+			<div class="overlay-8 bg-info"></div>
+			<div class="container">
+				<!-- The WordPress Menu goes here -->
+				<?php wp_nav_menu(
+					array(
+						'theme_location'  => 'primary',
+						'container_class' => 'is-right',
+						'container_id'    => '',
+						'menu_class'      => 'navbar-nav navbar-top pull-right',
+						'fallback_cb'     => '',
+						'menu_id'         => 'main-menu',
+						'walker'          => new WP_Bootstrap_Navwalker_YoFisio(),
+					)
+				); ?>
+			</div><!-- .container -->
+		</nav><!-- .site-navigation -->
+
+		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
+		'understrap' ); ?></a>
+
+		<div class="header-main header-home">
+			<div class="container text-center">
+				<!-- Your site title as branding in the menu -->
+				<?php if ( ! has_custom_logo() ) { ?>
+					<?php if ( is_front_page() && is_home() ) : ?>
+						<h1 class="navbar-brand"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+						<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+					<?php endif; ?>
+				<?php } else {
+					the_custom_logo();
+				} ?><!-- end custom logo -->
+
+			</div><!-- .container -->
+
+    </div><!-- .site-navigation -->
+
+	</div><!-- .wrapper-navbar end -->
+
+	<nav id="category-nav" class="navbar navbar-toggleable navbar-inverse">
+		<div class="overlay-8 bg-info"></div>
+		<div class="container">
+		
+			<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#categoriesDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</button>
+
+
+			<!-- The WordPress Menu goes here -->
+			<?php wp_nav_menu(
+				array(
+					'theme_location'  => 'categories-menu',
+					'container_class' => 'collapse navbar-collapse',
+					'container_id'    => 'categoriesDropdown',
+					'menu_class'      => 'navbar-nav h5',
+					'fallback_cb'     => '',
+					'menu_id'         => 'categories-menu',
+					'walker'          => new WP_Bootstrap_Navwalker_YoFisio(),
+				)
+			); ?>
+		</div><!-- .container -->
+	</nav><!-- .site-navigation -->
+
+  <div class="jumbotron title pos-r">
+    <div class="overlay-4 bg-white"></div>
+    <div class="overlay">
+      <?php
+        // HEADER IMAGE
+        $attr = array(
+          'title' => get_my_title(),
+          'alt' => get_my_title(),
+          'class' =>  get_field('position'),
+        );
+        echo wp_get_attachment_image($img, 'full', false, $attr);
+      ?>
+    </div>
+    <div class="container">
+      <h1 class="text-center"><?php echo get_my_title(); ?></h1>
+    </div>
   </div>
-  <div class="container">
-    <h1 class="text-center"><?php echo get_my_title(); ?></h1>
-  </div>
-</div>
