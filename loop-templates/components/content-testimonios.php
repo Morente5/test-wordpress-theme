@@ -9,7 +9,7 @@
 
 
   <div class="container">
-    <h2 class="text-center">Testimonios</h2>
+    <h2 class="text-center"><?php the_field('testimonios_h2'); ?></h2>
   </div>
   
   <div class="container content">
