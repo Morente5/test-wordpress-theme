@@ -10,7 +10,7 @@
     <a data-rel="external" href="tel:<?php echo get_field('telefonos', $contacto_page->ID)[0]['telefono']; ?>" class="btn btn-warning btn-block m-t-2 btn-cool">
         <i class="fa fa-phone fa-2"></i>
         <div>
-            <small>Si sufres esta patología<br>no dudes en llamarnos</small><?php echo get_field('telefonos', $contacto_page->ID)[0]['telefono']; ?>
+            <small>¿Sufres alguna de estas patologías?<br>No dudes en llamarnos</small><?php echo get_field('telefonos', $contacto_page->ID)[0]['telefono']; ?>
         </div>
     </a>
 </div>
