@@ -89,7 +89,7 @@ $the_theme = wp_get_theme();
 
 $contactoID = get_page_by_title( 'contacto' )->ID
 ?>
-<script>
+<script type="text/javascript" defer>
 function initMap() {
 	var yofisio = {lat: <?php echo get_field('direccion', $contactoID)['lat']; ?>, lng: <?php echo get_field('direccion', $contactoID)['lng']; ?>};
 	jQuery('.map').each( function() {
