@@ -11,6 +11,7 @@
 get_header();
 
 while ( have_posts() ) : the_post();
+	get_template_part( 'loop-templates/components/content', 'phone-cta' );
 	get_template_part( 'loop-templates/components/content', 'header' );
 	get_template_part( 'loop-templates/components/content', 'breadcrumbs' );
 	//get_template_part( 'loop-templates/components/content', 'subtitle' );
