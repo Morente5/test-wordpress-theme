@@ -7,9 +7,11 @@ function js_async_attr($tag){
         return $tag; 
     }
 
-    return str_replace( ' src', ' async defer src', $tag );
+    return str_replace( ' src', ' defer src', $tag );
 }
-add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+if(!is_admin()) {
+    add_filter( 'script_loader_tag', 'js_async_attr', 10, 2 );
+}
 
 function understrap_remove_scripts() {
     wp_dequeue_style( 'understrap-styles' );
@@ -74,9 +76,16 @@ function yofisio_breadcrumbs() {
   $breadcrums_id      = 'breadcrumbs';
   $breadcrums_class   = 'breadcrumb';
   $home_title         = 'YoFisio';
-  $home_display       = get_field('icono_home_breadcrumbs', get_option( 'page_on_front' )) ?
-    '<img src="'.get_field('icono_home_breadcrumbs', get_option( 'page_on_front' ))['url'].'" alt="'.$home_title.'" rel="home">' :
-    $home_title;
+    
+    if get_field('icono_home_breadcrumbs', get_option( 'page_on_front' )) {
+        if function_exists( 'ampforwp_is_amp_endpoint' ) && ampforwp_is_amp_endpoint() ) {
+            $home_display = '<amp-img src="'.get_field('icono_home_breadcrumbs', get_option( 'page_on_front' ))['url'].'" width="121px" height="40px" alt="'.$home_title.'"></amp-img>';
+        } else {
+            $home_display = '<img src="'.get_field('icono_home_breadcrumbs', get_option( 'page_on_front' ))['url'].'" alt="'.$home_title.'" rel="home">';
+        }
+    } else {
+        $home_display = $home_title;
+    }
 
   // Get the query & post information
   global $post,$wp_query;
@@ -279,7 +288,7 @@ class Yofisio_Comment_Walker extends Walker_Comment {
                 <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
             </div>
             <p class="comment-author">  
-                <a class="comment-author-link" href="<?php comment_author_url(); ?>" itemprop="author"><?php comment_author(); ?></a> el
+                <a class="comment-author-link" rel="nofollow noopener" target="_blank" href="<?php comment_author_url(); ?>" itemprop="author"><?php comment_author(); ?></a> el
             
             <time class="comment-meta-item" datetime="<?php comment_date('Y-m-d') ?>T<?php comment_time('H:iP') ?>" itemprop="datePublished"><?php comment_date('j F, Y') ?> a las <a href="#comment-<?php comment_ID() ?>" itemprop="url"><?php comment_time('G:i:s') ?></a></time>
 </p>
