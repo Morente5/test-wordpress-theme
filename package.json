@@ -1,7 +1,7 @@
 {
-  "name": "yofisio-theme",
-  "version": "1.7.1",
-  "description": "Yofisio Theme",
+  "name": "test-wordpress-theme",
+  "version": "1.8.0",
+  "description": "Wordpress Theme using Understrap",
   "main": "index.js",
   "scripts": {},
   "repository": {
@@ -17,7 +17,7 @@
   ],
   "author": "Alejandro Morente",
   "license": "GPL-2.0",
-  "homepage": "https:/braunmarketingandconsulting.es",
+  "homepage": "https:/a.morente.me/",
   "dependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^4.0.0-alpha.6",

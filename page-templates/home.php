@@ -17,6 +17,7 @@ while ( have_posts() ) : the_post();
 	<div class="wrapper" id="content-wrapper">
 		<?php
 			get_template_part( 'loop-templates/components/content', 'subtitle' );
+			get_template_part( 'loop-templates/components/content', 'razones' );
 			get_template_part( 'loop-templates/components/content', 'categorias' );
 			get_template_part( 'loop-templates/components/content', 'equipo' );
 		?>
